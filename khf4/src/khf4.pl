@@ -23,8 +23,6 @@ generate_row(N-M, Tp, Cnt, RowCnt, Mx) :-
 coord_in_list(X-Y, Tp, CellValue) :-
     (member(X-Y, Tp) -> CellValue = 1; CellValue = 0).
 
-coord_in_list(_, _, _, 0).
-
 calc_tents([], [], []).
 
 calc_tents([X-Y | RestFs], [S | RestSs], [NewX-NewY | RestMx]) :-
@@ -37,6 +35,7 @@ update_coordinates(X, Y, e, X, NewY) :- NewY is Y + 1.
 update_coordinates(X, Y, s, NewX, Y) :- NewX is X + 1.
 
 list_length([],0).
+
 list_length([_|TAIL],N) :-
     list_length(TAIL,N1), N is N1 + 1.
 
